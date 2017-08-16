@@ -2,10 +2,11 @@
 Screenshot tool for Emacs' org-mode: scrorg
 
 * Installation
+** Python-side
 #+BEGIN_SRC 
 pip install .
 #+END_SRC
-
+** Emacs-side
 In your init.el place
 #+BEGIN_SRC elisp
   (defun scrorg()
@@ -19,11 +20,11 @@ In your init.el place
 #+END_SRC
 
 * Usage
-- From a org-file invoke scrorg within emacs
+- From an org-file invoke 'M-x scrorg' within emacs
 - The screen turns gray
 - Select with your mouse your desired area
-- Press ESC to cancel the operation
-- Press RETURN to save the screenshot to directory img and return to emacs insert an image link to the just saved screenshot
+- Hit ESC to cancel the operation
+- Hit RETURN to save the screenshot to directory 'img' and return to emacs insert an image link to the just saved screenshot
 - The given filename is derived from the current UTC-time.
 
 * Tested with
