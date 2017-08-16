@@ -1,0 +1,2 @@
+Pillow==4.2.1
+-e git+https://github.com/RetepRennelk/scrorg.git@fd5b65a3426f9a2109eddeb3ff7e65424ef89f3a#egg=scrorg
