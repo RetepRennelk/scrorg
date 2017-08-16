@@ -1,0 +1,26 @@
+* SCRORG
+Screenshot tool for Emacs' org-mode: scrorg
+
+* Installation
+#+BEGIN_SRC 
+pip install .
+#+END_SRC
+
+In your init.el place
+#+BEGIN_SRC elisp
+  (defun scrorg()
+    (interactive)
+    (iconify-or-deiconify-frame)
+    (let (
+           (filename (substring (shell-command-to-string "scrorg") 0 -1)))
+      (insert (format "[[%s]]" filename))
+    )
+    (iconify-or-deiconify-frame))
+#+END_SRC
+
+* Tested with
+- Windows 10
+- Python 3.5
+
+* License
+MIT
