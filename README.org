@@ -14,14 +14,16 @@ Pillow==4.2.1
 ** Emacs-side
 In your init.el place
 #+BEGIN_SRC elisp
-  (defun scrorg()
-    (interactive)
-    (iconify-or-deiconify-frame)
-    (let (
-           (filename (substring (shell-command-to-string "scrorg") 0 -1)))
-      (insert (format "[[%s]]" filename))
-    )
-    (iconify-or-deiconify-frame))
+    (defun scrorg()
+      (interactive)
+      (progn 
+         (iconify-or-deiconify-frame)
+         (let (
+               (filename (substring (shell-command-to-string "scrorg") 0 -1)))
+           (if (> (length filename) 0)
+               (insert (format "[[%s]]" filename))
+             (message "You escaped from scrorg.")))
+         (iconify-or-deiconify-frame)))
 #+END_SRC
 
 * Usage

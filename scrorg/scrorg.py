@@ -33,6 +33,7 @@ class ScrOrg(tk.Tk):
         self.bind('<Escape>', self.close)
 
     def close(self, event):
+        print("")
         self.destroy()
 
     def on_button_press(self, event):
