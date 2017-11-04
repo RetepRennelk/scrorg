@@ -1,5 +1,12 @@
 * SCRORG
-Screenshot tool for Emacs' org-mode: scrorg
+A screenshot tool for Emacs' org-mode ~scrorg~. 
+
+Imagine yourself taking notes while participating in an online
+presentation and wanting to take a quick screenshot. ~scrorg~ has you
+covered. ~scrorg~ leverages ~Pillow~ and ~tkinter~ to gray out the
+current screen. Then use your mouse to select your area of interest,
+hit RETURN and the select area will copied into an ~./img~ directory
+side-by-side to your org-mode file in which you enter your notes.
 
 * Installation
 ** Python-side
@@ -14,16 +21,16 @@ Pillow==4.2.1
 ** Emacs-side
 In your init.el place
 #+BEGIN_SRC elisp
-    (defun scrorg()
-      (interactive)
-      (progn 
-         (iconify-or-deiconify-frame)
-         (let (
-               (filename (substring (shell-command-to-string "scrorg") 0 -1)))
-           (if (> (length filename) 0)
-               (insert (format "[[%s]]" filename))
-             (message "You escaped from scrorg.")))
-         (iconify-or-deiconify-frame)))
+  (defun scrorg()
+    (interactive)
+    (progn 
+       (iconify-or-deiconify-frame)
+       (let (
+             (filename (substring (shell-command-to-string "scrorg") 0 -1)))
+         (if (> (length filename) 0)
+             (insert (format "[[file:%s]]" filename))
+           (message "You escaped from scrorg.")))
+       (iconify-or-deiconify-frame)))
 #+END_SRC
 
 * Usage
