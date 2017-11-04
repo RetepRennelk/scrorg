@@ -6,7 +6,8 @@ presentation and wanting to take a quick screenshot. ~scrorg~ has you
 covered. ~scrorg~ leverages ~Pillow~ and ~tkinter~ to gray out the
 current screen. Then use your mouse to select your area of interest,
 hit RETURN and the select area will copied into an ~./img~ directory
-side-by-side to your org-mode file in which you enter your notes.
+as a PNG-file side-by-side to your org-mode file in which you enter
+your notes.
 
 * Installation
 ** Python-side
