@@ -7,7 +7,9 @@ covered. ~scrorg~ leverages ~Pillow~ and ~tkinter~ to gray out the
 current screen. Then use your mouse to select your area of interest,
 hit RETURN and the select area will copied into an ~./img~ directory
 as a PNG-file side-by-side to your org-mode file in which you enter
-your notes.
+your notes. The PNG-file will be given a name derived from UTC
+time. The link to the file will be placed in the buffer from ~scrorg~
+was started. 
 
 * Installation
 ** Python-side
