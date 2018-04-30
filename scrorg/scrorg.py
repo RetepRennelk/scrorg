@@ -4,6 +4,7 @@ import tkinter as tk  # This is Python 3.x. For Python 2.x import Tkinter
 from PIL import Image, ImageTk, ImageGrab
 from datetime import datetime, timezone
 
+
 class ScrOrg(tk.Tk):
     '''
     Screenshot tool for Emacs' org-mode
@@ -42,7 +43,8 @@ class ScrOrg(tk.Tk):
         self.start_y = event.y
         if self.rect:
             self.canvas.delete(self.rect)
-        self.rect = self.canvas.create_rectangle(0, 0, 1, 1, width=2.0, outline="red")
+        r = self.canvas.create_rectangle(0, 0, 1, 1, width=2.0, outline="red")
+        self.rect = r
 
     def on_move_press(self, event):
         self.canvas.coords(self.rect, self.start_x, self.start_y, event.x, event.y)
@@ -60,6 +62,9 @@ class ScrOrg(tk.Tk):
         utc = datetime.now(timezone.utc)  # UTC time
         now = utc.astimezone()  # local time
         filename = now.strftime('%Y-%m-%dT%H-%M-%S%z') + '.png'
+        # The plus sign is treated peculiar by an HTTP server.
+        # Hence, get rid of it and replace it by '_'.
+        filename = filename.replace('+', '_')
         return filename
 
     def _save_segment(self, event):
@@ -78,6 +83,7 @@ class ScrOrg(tk.Tk):
         if self.rect:
             self.canvas.delete(self.rect)
             self.rect = None
+
 
 if __name__ == "__main__":
     app = ScrOrg()
